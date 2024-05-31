@@ -1,6 +1,7 @@
 using AgriEnergyConnect.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using AgriEnergyConnect.Data.Data_Access;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+var agriEnergyConnectDbConnectionString = builder.Configuration.GetConnectionString("AgriEnergyConnectDbConnection") ?? throw new InvalidOperationException("Connection string 'AgriEnergyConnectDbConnection' not found.");
+builder.Services.AddDbContext<AgriEnergyConnectDbContext>(options =>
+    options.UseSqlServer(agriEnergyConnectDbConnectionString));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
