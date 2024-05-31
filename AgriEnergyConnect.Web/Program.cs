@@ -94,11 +94,12 @@ async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<Identity
         }
     }
 
+    // Create a default admin user
     var adminUser = new IdentityUser
     {
         
-        UserName = "admin@admin.com",
-        Email = "admin@admin.com",
+        UserName = "admin@agryenergyconnect.com",
+        Email = "admin@agryenergyconnect.com",
         EmailConfirmed = true
     };
 
@@ -107,8 +108,27 @@ async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<Identity
         var user = await userManager.FindByEmailAsync(adminUser.Email);
         if (user == null)
         {
-            await userManager.CreateAsync(adminUser, "Password123!");
+            await userManager.CreateAsync(adminUser, "EmployeeOn0512!");
             await userManager.AddToRoleAsync(adminUser, "Employee");
         }
     }
+
+    // Create a default farmer user
+    var defaultFarmer = new IdentityUser
+    {
+        UserName = "farmer@agryenergyconnect.com",
+        Email = "farmer@agryenergyconnect.com",
+        EmailConfirmed = true
+    };
+
+    if (userManager.Users.All(u => u.Id != defaultFarmer.Id))
+    {
+        var user = await userManager.FindByEmailAsync(defaultFarmer.Email);
+        if (user == null)
+        {
+            await userManager.CreateAsync(defaultFarmer, "Password123!");
+            await userManager.AddToRoleAsync(defaultFarmer, "Farmer");
+        }
+    }
 }
+

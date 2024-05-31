@@ -1,11 +1,13 @@
 ﻿using AgriEnergyConnect.Data.Data_Access;
 using AgriEnergyConnect.Data.Models;
+using AgriEnergyConnect.Web.Observers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace AgriEnergyConnect.Web.Controllers
 {
@@ -14,11 +16,13 @@ namespace AgriEnergyConnect.Web.Controllers
     {
         private readonly AgriEnergyConnectDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ISubject _productSubject;
 
         public ProductsController(AgriEnergyConnectDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+            _productSubject = new ProductSubject();
         }
 
         [Authorize(Roles = "Farmer")]
@@ -44,6 +48,7 @@ namespace AgriEnergyConnect.Web.Controllers
                 product.FarmerId = farmer.Id;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+                _productSubject.NotifyObservers($"Product {product.Name} added.");
                 return RedirectToAction(nameof(ViewProducts));
             }
             return View(product);

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AgriEnergyConnect.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a97fe0122dad98b4548fb69d8bd400aacaf27644")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2554fb18005bfd594b757f03ecef9189dea8069")]
 [assembly: System.Reflection.AssemblyProductAttribute("AgriEnergyConnect.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AgriEnergyConnect.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

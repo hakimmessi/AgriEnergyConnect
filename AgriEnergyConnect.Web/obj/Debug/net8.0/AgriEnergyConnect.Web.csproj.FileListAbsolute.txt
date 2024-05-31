@@ -288,3 +288,6 @@ C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\ne
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\MailKit.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\bin\Debug\net8.0\MimeKit.dll
