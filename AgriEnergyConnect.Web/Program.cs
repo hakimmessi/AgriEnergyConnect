@@ -96,6 +96,7 @@ async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<Identity
 
     var adminUser = new IdentityUser
     {
+        
         UserName = "admin@admin.com",
         Email = "admin@admin.com",
         EmailConfirmed = true
