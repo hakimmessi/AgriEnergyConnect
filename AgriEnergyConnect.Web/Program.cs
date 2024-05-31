@@ -2,10 +2,10 @@ using AgriEnergyConnect.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AgriEnergyConnect.Data.Data_Access;
+using AgriEnergyConnect.Data.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Reflection.Metadata;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,7 +53,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-// Seed the database with roles and an admin user.
+// Seed the database with roles, users, and initial data.
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -61,7 +61,9 @@ using (var scope = app.Services.CreateScope())
     {
         var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        await SeedRoles(userManager, roleManager);
+        var context = services.GetRequiredService<AgriEnergyConnectDbContext>();
+
+        await SeedRolesAndUsers(userManager, roleManager, context);
     }
     catch (Exception ex)
     {
@@ -73,16 +75,16 @@ using (var scope = app.Services.CreateScope())
 app.Run();
 
 /// <summary>
-/// This method is responsible for seeding the roles and creating an admin user in the database.
+/// This method is responsible for seeding the roles and creating users in the database.
 /// It ensures that the required roles ("Farmer" and "Employee") exist in the system.
 /// If the roles do not exist, it creates them using the RoleManager.
-/// It also creates an admin user with the email "admin@admin.com" and assigns the "Employee" role to the admin user.
-/// This method is called during application startup to ensure that the necessary roles and admin user are available in the database.
+/// It also creates users with the appropriate roles and seeds initial products data.
 /// </summary>
 /// <param name="userManager">The UserManager instance used for user management.</param>
 /// <param name="roleManager">The RoleManager instance used for role management.</param>
+/// <param name="context">The DbContext instance used for data access.</param>
 /// <returns>A Task representing the asynchronous operation.</returns>
-async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+async Task SeedRolesAndUsers(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AgriEnergyConnectDbContext context)
 {
     var roles = new[] { "Farmer", "Employee" };
 
@@ -97,7 +99,6 @@ async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<Identity
     // Create a default admin user
     var adminUser = new IdentityUser
     {
-        
         UserName = "admin@agryenergyconnect.com",
         Email = "admin@agryenergyconnect.com",
         EmailConfirmed = true
@@ -114,21 +115,79 @@ async Task SeedRoles(UserManager<IdentityUser> userManager, RoleManager<Identity
     }
 
     // Create a default farmer user
-    var defaultFarmer = new IdentityUser
+    var farmerUser1 = new IdentityUser
     {
-        UserName = "farmer@agryenergyconnect.com",
-        Email = "farmer@agryenergyconnect.com",
+        UserName = "farmer1@agryenergyconnect.com",
+        Email = "farmer1@agryenergyconnect.com",
         EmailConfirmed = true
     };
 
-    if (userManager.Users.All(u => u.Id != defaultFarmer.Id))
+    if (userManager.Users.All(u => u.Id != farmerUser1.Id))
     {
-        var user = await userManager.FindByEmailAsync(defaultFarmer.Email);
+        var user = await userManager.FindByEmailAsync(farmerUser1.Email);
         if (user == null)
         {
-            await userManager.CreateAsync(defaultFarmer, "Password123!");
-            await userManager.AddToRoleAsync(defaultFarmer, "Farmer");
+            await userManager.CreateAsync(farmerUser1, "Password123!");
+            await userManager.AddToRoleAsync(farmerUser1, "Farmer");
         }
     }
+
+    var farmerUser2 = new IdentityUser
+    {
+        UserName = "farmer2@agryenergyconnect.com",
+        Email = "farmer2@agryenergyconnect.com",
+        EmailConfirmed = true
+    };
+
+    if (userManager.Users.All(u => u.Id != farmerUser2.Id))
+    {
+        var user = await userManager.FindByEmailAsync(farmerUser2.Email);
+        if (user == null)
+        {
+            await userManager.CreateAsync(farmerUser2, "Password123!");
+            await userManager.AddToRoleAsync(farmerUser2, "Farmer");
+        }
+    }
+
+    // Get the IDs of the created farmer users
+    var farmer1 = await userManager.FindByEmailAsync(farmerUser1.Email);
+    var farmer2 = await userManager.FindByEmailAsync(farmerUser2.Email);
+
+    // Seed initial products
+    SeedProducts(context, farmer1.Id, farmer2.Id);
 }
 
+/// <summary>
+/// This method is responsible for seeding initial products into the database.
+/// It ensures that some products are available for demonstration purposes.
+/// </summary>
+/// <param name="context">The DbContext instance used for data access.</param>
+/// <param name="farmer1Id">The ID of the first farmer.</param>
+/// <param name="farmer2Id">The ID of the second farmer.</param>
+void SeedProducts(AgriEnergyConnectDbContext context, string farmer1Id, string farmer2Id)
+{
+    // Check if the database has been seeded
+    if (context.Products.Any())
+    {
+        return;   // DB has been seeded
+    }
+
+    context.Products.AddRange(
+        new Product
+        {
+            Name = "Apple",
+            Category = "Fruit",
+            ProductionDate = DateTime.Parse("2023-05-01"),
+            FarmerId = int.Parse(farmer1Id)
+        },
+        new Product
+        {
+            Name = "Carrot",
+            Category = "Vegetable",
+            ProductionDate = DateTime.Parse("2023-04-15"),
+            FarmerId = int.Parse(farmer2Id)
+        }
+    );
+
+    context.SaveChanges();
+}
