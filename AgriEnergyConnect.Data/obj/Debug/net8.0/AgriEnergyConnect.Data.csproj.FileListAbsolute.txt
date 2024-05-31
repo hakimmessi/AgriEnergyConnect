@@ -9,3 +9,7 @@ C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\n
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\refint\AgriEnergyConnect.Data.dll
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.pdb
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\ref\AgriEnergyConnect.Data.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\bin\Debug\net8.0\AgriEnergyConnect.Data.runtimeconfig.json
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.csproj.AssemblyReference.cache
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.sourcelink.json
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.genruntimeconfig.cache

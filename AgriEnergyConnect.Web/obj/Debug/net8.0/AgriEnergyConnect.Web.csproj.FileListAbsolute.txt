@@ -146,3 +146,4 @@ C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\obj\Debug\ne
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\obj\Debug\net8.0\AgriEnergyConnect.Web.pdb
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\obj\Debug\net8.0\AgriEnergyConnect.Web.genruntimeconfig.cache
 C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\obj\Debug\net8.0\ref\AgriEnergyConnect.Web.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Web\obj\Debug\net8.0\AgriEnergyConnect.Web.sourcelink.json
