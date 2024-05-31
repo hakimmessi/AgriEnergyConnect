@@ -11,6 +11,8 @@ namespace AgriEnergyConnect.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string UserId { get; set; }  // New property
         public ICollection<Product> Products { get; set; }
     }
+
 }
