@@ -1,0 +1,11 @@
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\bin\Debug\net8.0\AgriEnergyConnect.Data.deps.json
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\bin\Debug\net8.0\AgriEnergyConnect.Data.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\bin\Debug\net8.0\AgriEnergyConnect.Data.pdb
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.AssemblyInfoInputs.cache
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.AssemblyInfo.cs
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.csproj.CoreCompileInputs.cache
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\refint\AgriEnergyConnect.Data.dll
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\AgriEnergyConnect.Data.pdb
+C:\Users\hakee\source\repos\AgriEnergyConnect\AgriEnergyConnect.Data\obj\Debug\net8.0\ref\AgriEnergyConnect.Data.dll
