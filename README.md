@@ -18,8 +18,8 @@ Step-by-Step Instructions:
 3. Install Visual Studio
 	Download and install Visual Studio 2022
 	During installation, ensure to include the following workloads:
-o	ASP.NET and web development
-o	.NET desktop development
+     o	 ASP.NET and web development
+     o	.NET desktop development
 
 4. Clone the Repository:
 	Open a terminal or Git Bash and clone the repository: https://github.com/hakimmessi/AgriEnergyConnect.git
@@ -39,14 +39,14 @@ Step-by-Step Instructions
 2.	Configure Database Connection Strings
 	Open `appsettings.json` in the `AgriEnergyConnect.Web` project.
 	Update the connection strings to match your local SQL Server instance:  
-```json
-     {
-       "ConnectionStrings": {
-        "DefaultConnection": "Server=your_server_name;Database=IdentityDb;User Id=your_user;Password=your_password;",
-         "AgriEnergyConnectDbConnection": "Server=your_server_name;Database=AgriEnergyConnectDataDB;User Id=your_user;Password=your_password;"
-}
-}
- ```
+          ```json
+          {
+            "ConnectionStrings": {
+             "DefaultConnection": "Server=your_server_name;Database=IdentityDb;User Id=your_user;Password=your_password;",
+             "AgriEnergyConnectDbConnection": "Server=your_server_name;Database=AgriEnergyConnectDataDB;User                Id=your_user;Password=your_password;"
+          }
+          }
+         ```
 
 3.	Update Database Migrations
 	Open the Package Manager Console (PMC) in Visual Studio (Tools > NuGet Package Manager > Package Manager Console).
@@ -58,7 +58,7 @@ Step-by-Step Instructions
 4.	Run the Application
 	Press `F5` or click on the "Start Debugging" button in Visual Studio to build and run the application.
 
- # Database Configuration. 
+Database Configuration. 
 
 Restore Databases
 
@@ -69,4 +69,4 @@ Restore Databases
 Configure Connection Strings
 
 	Open the `appsettings.json` file in the project on the new computer.
-	   Update the connection strings to match the new SQL Server instance.
+	Update the connection strings to match the new SQL Server instance.
